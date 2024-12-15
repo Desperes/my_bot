@@ -12,39 +12,51 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    
+
 
     # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
-    package_name = 'my_bot' #<--- CHANGE ME TO THE NAME OF THE PACKAGE
-    rsp=IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory(package_name),'launch','rsp.launch.py'
-        )]), launch_arguments={'use_sime_time': 'true'}.items()
+
+    package_name='my_bot' #<--- CHANGE ME
+
+    rsp = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','rsp.launch.py'
+                )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    # Include the gazebo launch file, provided by the gazebo ros package
+    # Include the Gazebo launch file, provided by the gazebo_ros package
     gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-    )
-    
-    # Run the spawner mode from gazebo_ros_package. The entity name doesn't really matter if you only have 
-    spawn_entity = Node(package= 'gazebo_ros', executable='spawn_entity.py', 
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+             )
+
+    # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
+    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity','my_bot'],
-                                   output='screen')
-    
+                                   '-entity', 'my_bot'],
+                        output='screen')
+
+
     diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["diff_cont"],
     )
-    
+
     joint_broad_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_cont"],
+        arguments=["joint_broad"],
     )
-    #Launch them all!
-    return LaunchDescription([rsp, gazebo, spawn_entity, diff_drive_spawner,joint_broad_spawner])
+
+
+
+    # Launch them all!
+    return LaunchDescription([
+        rsp,
+        gazebo,
+        spawn_entity,
+        diff_drive_spawner,
+        joint_broad_spawner
+    ])
