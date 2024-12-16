@@ -1,0 +1,7 @@
+teleop_twist_joy:  # Node name
+  ros__parameters: # Required for ROS 2 parameters
+    axis_linear: 1         # Joystick axis for linear motion (e.g., forward/backward)
+    axis_angular: 0        # Joystick axis for angular motion (e.g., turning)
+    scale_linear: 1.0      # Max speed for linear motion
+    scale_angular: 2.0     # Max speed for angular motion
+    enable_button: 0       # Button to enable movement
