@@ -30,12 +30,12 @@ diff_cont:
     # left_wheel_radius_multiplier: x
     # right_wheel_radius_multiplier: x
 
-    # odom_frame_id: x
+    #odom_frame_id: odom
+    #base_frame_id: base_link
     # pose_covariance_diagonal: x
     # twist_covariance_diagonal: x
     # open_loop: x
-    # enable_odom_tf: x
-
+    #enable_odom_tf: true
     # cmd_vel_timeout: x
     # publish_limited_velocity: x
     # velocity_rolling_window_size: x
