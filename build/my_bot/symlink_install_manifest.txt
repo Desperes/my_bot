@@ -1,5 +1,6 @@
 /home/aneena/dev_ws/install/my_bot/share/my_bot/config/empty.yaml
 /home/aneena/dev_ws/install/my_bot/share/my_bot/config/gazebo_params.yaml
+/home/aneena/dev_ws/install/my_bot/share/my_bot/config/mapper_params_online_async.yaml
 /home/aneena/dev_ws/install/my_bot/share/my_bot/config/my_controllers.yaml
 /home/aneena/dev_ws/install/my_bot/share/my_bot/config/teleop_joy.yaml
 /home/aneena/dev_ws/install/my_bot/share/my_bot/config/view_bot.rviz
@@ -10,7 +11,6 @@
 /home/aneena/dev_ws/install/my_bot/share/my_bot/description/robot_core.xacro
 /home/aneena/dev_ws/install/my_bot/share/my_bot/description/ros2_control.xacro
 /home/aneena/dev_ws/install/my_bot/share/my_bot/launch/launch_sim.launch.py
-/home/aneena/dev_ws/install/my_bot/share/my_bot/launch/robot_control_launch.py
 /home/aneena/dev_ws/install/my_bot/share/my_bot/launch/rplidar.launch.py
 /home/aneena/dev_ws/install/my_bot/share/my_bot/launch/rsp.launch.py
 /home/aneena/dev_ws/install/my_bot/share/my_bot/worlds/empty.world
